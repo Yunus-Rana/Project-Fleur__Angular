@@ -59,24 +59,14 @@
 .mini-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  color: #171717;
+  min-height: 54px;
 }
 
-.mini-mark {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  background: #131313;
-  color: #fff;
-  font-size: 0.8rem;
-}
-
-.mini-copy {
-  font-size: 1rem;
+.brand-logo {
+  display: block;
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
 }
 
 .icon-button,

@@ -6,7 +6,7 @@ import { productsAPIResponse } from './productsDataType';
 export class Products {
     private http =  inject(HttpClient)
 
-    apiUrl = "https://dummyjson.com/products"
+    apiUrl = "https://dummyjson.com/products?limit=40"
     
     getProducts(){
         return this.http.get<productsAPIResponse>(this.apiUrl)

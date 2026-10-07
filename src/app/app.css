@@ -10,7 +10,7 @@
 .studio-shell {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
-  gap: 30px;
+  gap: 10px;
   width: min(1280px, calc(100% - 32px));
   margin: 40px auto;
   padding: 20px;
@@ -402,7 +402,7 @@
 .collection-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  gap: 10px;
 }
 
 .collection-card {

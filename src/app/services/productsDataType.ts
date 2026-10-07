@@ -48,7 +48,7 @@ export interface Product {
   thumbnail: string;
 }
 
-// Wrapper if you are typing the API response containing the array:
+
 export interface ProductsResponse {
   products: Product[];
 }

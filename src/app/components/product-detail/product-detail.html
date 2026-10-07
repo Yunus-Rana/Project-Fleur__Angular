@@ -1,0 +1,106 @@
+<main class="detail-shell">
+  <header class="detail-header">
+    <a class="brand" routerLink="/" aria-label="Fleur home">
+      <span class="brand-mark">F</span>
+      <span>Fleur</span>
+    </a>
+
+    <nav class="header-nav" aria-label="Main navigation">
+      <a routerLink="/">Collection</a>
+      <a href="#product-information">Our story</a>
+    </nav>
+
+    <a class="back-link" routerLink="/">Back to collection <span aria-hidden="true">↗</span></a>
+  </header>
+
+  @if (products(); as product) {
+    <div class="breadcrumbs" aria-label="Breadcrumb">
+      <a routerLink="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ product.category }}</span>
+      <span aria-hidden="true">/</span>
+      <span>{{ product.title }}</span>
+    </div>
+
+    <section class="product-detail">
+      <div class="gallery" aria-label="Product images">
+        <div class="main-image">
+          <img [src]="product.images[0] || product.thumbnail" [alt]="product.title" />
+          <span class="image-label">Fleur selection</span>
+        </div>
+
+        @if (product.images.length > 1) {
+          <div class="image-strip">
+            @for (image of product.images.slice(1, 5); track image) {
+              <div class="image-tile">
+                <img [src]="image" [alt]="product.title + ' view'" />
+              </div>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="product-copy" id="product-information">
+        <div class="product-overline">
+          <span>{{ product.category }}</span>
+          @if (product.brand) {
+            <span>{{ product.brand }}</span>
+          }
+        </div>
+
+        <h1>{{ product.title }}</h1>
+
+        <div class="rating-line">
+          <span class="stars" aria-label="Product rating">★★★★★</span>
+          <strong>{{ product.rating }}</strong>
+          <span>({{ product.reviews.length }} reviews)</span>
+        </div>
+
+        <p class="product-description">{{ product.description }}</p>
+
+        <div class="price-row">
+          <strong class="price">${{ product.price }}</strong>
+          <span class="discount">Save {{ product.discountPercentage }}%</span>
+        </div>
+
+        <div class="availability">
+          <span class="availability-dot"></span>
+          <span>{{ product.availabilityStatus }}</span>
+          <span class="stock-count">{{ product.stock }} available</span>
+        </div>
+
+        <button class="add-button" type="button">
+          Add to bag <span aria-hidden="true">＋</span>
+        </button>
+
+        <div class="service-notes">
+          <div>
+            <span class="note-icon" aria-hidden="true">↗</span>
+            <p><strong>Delivery</strong><span>{{ product.shippingInformation }}</span></p>
+          </div>
+          <div>
+            <span class="note-icon" aria-hidden="true">↺</span>
+            <p><strong>Returns</strong><span>{{ product.returnPolicy }}</span></p>
+          </div>
+          <div>
+            <span class="note-icon" aria-hidden="true">✳</span>
+            <p><strong>Warranty</strong><span>{{ product.warrantyInformation }}</span></p>
+          </div>
+        </div>
+
+        @if (product.reviews.length > 0) {
+          <aside class="review-note">
+            <span class="review-stars" aria-hidden="true">★★★★★</span>
+            <p>“{{ product.reviews[0].comment }}”</p>
+            <span>— {{ product.reviews[0].reviewerName }}</span>
+          </aside>
+        }
+      </div>
+    </section>
+  } @else {
+    <div class="loading-panel" aria-live="polite">
+      <span class="loading-mark">F</span>
+      <p>Finding your Fleur piece...</p>
+    </div>
+  }
+</main>

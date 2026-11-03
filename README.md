@@ -49,8 +49,8 @@ Make sure you have the following installed:
 1. Clone the repository:
 
 ```bash
-git clone <your-repository-url>
-cd APIinAngular
+git clone -url-
+cd -folder-
 ```
 
 2. Install dependencies:
